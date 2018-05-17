@@ -1,11 +1,11 @@
 <html>
 <head>
-  <title>Simple Perceptrons</title>
+  <title>Generic Perceptrons</title>
   <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
   <link rel="shortcut icon" type="image/png" href="./res/favicon.png">
   <script type="text/javascript" src="./p5js/p5.js">
   </script>
-  <script type="text/javascript" src="perceptrons.js">
+  <script type="text/javascript" src="perceptronsGeneric.js">
   </script>
 </head>
 
@@ -14,9 +14,11 @@
 
     <div class="row">
       <div class="col-lg-6">
-        <h2 class="text-uppercase"> Simple Perceptrons</h2>
-        <p class="text-monospace bg-success"> Visualizes 1000 points and uses the perceptrons to guess correctly if the
+        <h2 class="text-uppercase"> Generic Perceptrons</h2>
+        <p class="text-monospace bg-success"> Visualizes 500 points and uses the perceptrons to guess correctly if the
           point lies above or below the dividing line.
+          The dividing line is represented by equation y = mx + c. So, this code works for any generic line provided by
+          this equation.
           Green points indicate that the point was guessed correctly.
           Whereas Red points indicate incorrect guess.</p>
 
