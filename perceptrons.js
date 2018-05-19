@@ -38,6 +38,7 @@ function Perceptrons()
     var error = target - guess;
 
     // adjusting weights
+    // backpropagation
     for(var p=0;p<this.weights.length;p++)
     {
       this.weights[p] += error * inputs[p] * LEARNING_RATE;

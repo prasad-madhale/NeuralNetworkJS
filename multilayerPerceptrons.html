@@ -1,0 +1,127 @@
+<html>
+<head>
+  <title>Multilayer Perceptrons</title>
+  <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" type="image/png" href="./res/favicon.png">
+  <script type="text/javascript" src="./p5js/p5.js">
+  </script>
+  <script type="text/javascript" src="multilayerPerceptrons.js">
+  </script>
+  <script type="text/javascript" src="matrix.js">
+  </script>
+  <script type="text/javascript" src="NeuralNetwork.js">
+  </script>
+</head>
+
+<body>
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="container">
+        <h2 class="text-uppercase"> Multilayer Perceptrons</h2>
+        <div class="container">
+          <blockquote class="blockquote mb-0">
+            <p class="text-monospace">We try to solve the XOR problem which cannot be solved by a linear seperator like a
+            Simple Perceptron implemented earlier. A Multilayer Perceptron is implemented using a feedforward Neural Network. This feedforward NN uses backpropagation for adjusting its weights and bias.
+            The process of backpropagation basically is adjusting the values of weights and bias so as to obtain the desired outputs.</p>
+
+            <p class="text-monospace"> The Neural Network has 2 layers: a hidden layer and an output layer. It also exercises a bias
+              for each of the layer to obtain proper output. Refer the notes in order to gain insights into the structure of the Neural Network.</p>
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="container">
+        <h3> Training Data for XOR</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First Input</th>
+              <th scope="col">Second Input</th>
+              <th scope="col">Output</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>0</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>1</td>
+              <td>0</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>1</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <h3> Output after Training</h3>
+
+        <blockquote class="blockquote mb-0">
+        <p>The network is trained using the abovementioned data.
+        The method used for training is stochastic gradient descent where the model is trained iteratively over the data which is selected
+        randomly.</p>
+        <p>Training iterates 50000 times with Learning Rate = 0.1</p>
+        <p>Activation Funtion used is Sigmoid non-linear function which maps values between 0 and 1.</p>
+        </blockquote>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First Input</th>
+              <th scope="col">Second Input</th>
+              <th scope="col">Output</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>0</td>
+              <td>0</td>
+              <td class="bg-primary"><span id="a1"></span></td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>0</td>
+              <td>1</td>
+              <td class="bg-primary"><span id="a2"></span></td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>1</td>
+              <td>0</td>
+              <td class="bg-primary"><span id="a3"></span></td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>1</td>
+              <td>1</td>
+              <td class="bg-primary"><span id="a4"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

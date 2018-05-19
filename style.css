@@ -1,0 +1,19 @@
+html,body
+{
+  background-color: black;
+}
+
+p
+{
+  color: yellow;
+}
+
+h1,h2,h3,h4,h5
+{
+  color: red;
+}
+
+.table
+{
+  color: lightblue;
+}
