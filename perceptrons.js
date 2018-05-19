@@ -1,6 +1,6 @@
 // Simple Perceptrons Using p5.js
 
-const LEARNING_RATE = 0.1; // keeping it low for interesting and long lasting visualization
+const LEARNING_RATE = 0.001; // keeping it low for interesting and long lasting visualization
 const NUMBER_OF_WEIGHTS = 3; // x,y and bias
 const NUMBER_OF_POINTS = 1000; // number of points to train
 

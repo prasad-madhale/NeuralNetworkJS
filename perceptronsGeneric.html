@@ -3,6 +3,7 @@
   <title>Generic Perceptrons</title>
   <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
   <link rel="shortcut icon" type="image/png" href="./res/favicon.png">
+  <link rel="stylesheet" href="style.css">
   <script type="text/javascript" src="./p5js/p5.js">
   </script>
   <script type="text/javascript" src="perceptronsGeneric.js">
@@ -15,14 +16,18 @@
     <div class="row">
       <div class="col-lg-6">
         <h2 class="text-uppercase"> Generic Perceptrons</h2>
-        <p class="text-monospace bg-success"> Visualizes 500 points and uses the perceptrons to guess correctly if the
+        <p class="text-monospace"> Visualizes 500 points and uses the perceptrons to guess correctly if the
           point lies above or below the dividing line.
           The dividing line is represented by equation y = mx + c. So, this code works for any generic line provided by
           this equation.
-          Green points indicate that the point was guessed correctly.
-          Whereas Red points indicate incorrect guess.</p>
+        </p>
+        <blockquote class="blockquote mb-0"> <p class="text-monospace">Green points indicate that the point was guessed correctly.
+        Whereas Red points indicate incorrect guess. The bold black line denotes the dividing line against which <thead>
+          linear classification is performed. Whereas the yellow one denotes the classification that the algorithm
+          has guessed so far. It basically shows the algorithm's progress.</p></blockquote>
 
-        <p class="text-monospace bg-success">
+
+        <p class="text-monospace">
           We slowly converge to a function which guesses all the points correctly using
           simple gradient descent.
         </p>

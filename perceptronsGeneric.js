@@ -1,6 +1,6 @@
 // Simple Perceptrons Using p5.js
 
-const LEARNING_RATE = 0.01; // keeping it low for interesting and long lasting visualization
+const LEARNING_RATE = 0.002; // keeping it low for interesting and long lasting visualization
 const NUMBER_OF_WEIGHTS = 3; // x,y and bias
 var NUMBER_OF_POINTS = 500; // number of points to train
 
@@ -140,7 +140,6 @@ var perceptronBrain;
 
 function setup(){
   createCanvas(600,600);
-  background(135,206,250);
 
   perceptronBrain = new Perceptrons();
 
@@ -155,17 +154,26 @@ var trainIndex = 0;
 
 function draw()
 {
+  background(135,206,250);
+
+  stroke(0);
+  strokeWeight(3);
+
   // dividing line
   var p1 = new Point2(-1,lineEqn(-1));
   var p2 = new Point2(1,lineEqn(1));
 
   line(p1.pixelX(),p1.pixelY(),p2.pixelX(),p2.pixelY());
 
-  // // line representing what the algo has learned so far
-  // var p3 = new Point2(-1,perceptronBrain.guessY(-1));
-  // var p4 = new Point2(1,perceptronBrain.guessY(1));
-  //
-  // line(p3.pixelX(),p3.pixelY(),p4.pixelX(),p4.pixelY());
+  stroke(255,255,0);
+  strokeWeight(2);
+
+  // line representing what the algo has learned so far
+  var p3 = new Point2(-1,perceptronBrain.guessY(-1));
+  var p4 = new Point2(1,perceptronBrain.guessY(1));
+
+  line(p3.pixelX(),p3.pixelY(),p4.pixelX(),p4.pixelY());
+  noStroke();
 
   // draws the original points
   drawPoints(points);
