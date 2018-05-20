@@ -21,7 +21,7 @@ var trainingXORData = [
 
 function setup()
 {
-  var nn = new NeuralNetwork(2,2,1);
+  var nn = new NeuralNetwork(2,4,1,0.1);
 
   // stochastic gradient descent
   // repeat for every entry in the data picked randomly

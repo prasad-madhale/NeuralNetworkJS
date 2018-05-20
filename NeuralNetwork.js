@@ -1,12 +1,13 @@
-const LEARNING_RATE = 0.1;
+
 
 class NeuralNetwork
 {
-  constructor(input_neurons,hidden_neurons,output_neurons)
+  constructor(input_neurons,hidden_neurons,output_neurons,learningRate)
   {
     this.input_neurons = input_neurons;
     this.hidden_neurons = hidden_neurons;
     this.output_neurons = output_neurons;
+    this.learningRate = learningRate;
 
     this.weightsInputHidden = new Matrix(this.hidden_neurons,this.input_neurons);
     this.weightsHiddenOutput = new Matrix(this.output_neurons,this.hidden_neurons);
@@ -41,13 +42,10 @@ class NeuralNetwork
   // uses backpropagation
   train(input_array,answer)
   {
-    // // returns an array
-    // var output = this.feedforward(inputs);
-
-
     // as input comes in the form of an array we need to convert it to a matrix
     var inputs = Matrix.fromArray(input_array);
 
+    // feed forward required for it's intermediate values
     // Get output of Hidden Layer
     var hidden = Matrix.multiply(this.weightsInputHidden,inputs);
     hidden.add(this.biasHidden);
@@ -57,12 +55,6 @@ class NeuralNetwork
     var outputs = Matrix.multiply(this.weightsHiddenOutput,hidden);
     outputs.add(this.biasOutput);
     outputs.map(sigmoid);
-
-    // feed forward required for it's intermediate values
-
-
-
-
 
 
     // convert arrays to matrices
@@ -75,11 +67,6 @@ class NeuralNetwork
     var weightsHOTranspose = Matrix.transpose(this.weightsHiddenOutput);
     var hiddenError = Matrix.multiply(weightsHOTranspose,outputError);
 
-    // // debugging
-    // outputs.print();
-    // answer.print();
-    // outputError.print();
-    // hiddenError.print();
 
     // adjusting parameters (actual backpropagation)
     // for formulas refer notes attached to the repo
@@ -87,7 +74,7 @@ class NeuralNetwork
     // adjusting for the Output layer
     var gradientOutputs = Matrix.map(outputs,gradientDerivative);
     gradientOutputs.multiply(outputError);
-    gradientOutputs.multiply(LEARNING_RATE);
+    gradientOutputs.multiply(this.learningRate);
 
     var hiddenTranspose = Matrix.transpose(hidden);
     var deltaWeightsHO = Matrix.multiply(gradientOutputs,hiddenTranspose);
@@ -98,12 +85,10 @@ class NeuralNetwork
     // calculating deltas for the bias for Output layer
     this.biasOutput.add(gradientOutputs);
 
-
-
     //adjusting for the Hidden layer
     var gradientHidden = Matrix.map(hidden,gradientDerivative);
     gradientHidden.multiply(hiddenError);
-    gradientHidden.multiply(LEARNING_RATE);
+    gradientHidden.multiply(this.learningRate);
 
     var inputTranspose = Matrix.transpose(inputs);
     var deltaWeightsIH = Matrix.multiply(gradientHidden,inputTranspose);
@@ -113,7 +98,11 @@ class NeuralNetwork
 
     // calculating deltas for the bias for Hidden layer
     this.biasHidden.add(gradientHidden);
+  }
 
+  setLearningRate(x)
+  {
+    this.learningRate = x;
   }
 }
 
