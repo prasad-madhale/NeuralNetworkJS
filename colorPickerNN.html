@@ -1,0 +1,38 @@
+
+<html>
+<head>
+  <title>Color Picker using Neural Network</title>
+  <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <link rel="shortcut icon" type="image/png" href="./res/favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="./p5js/p5.js">
+  </script>
+  <script type="text/javascript" src="./p5js/addons/p5.dom.min.js">
+  </script>
+  <script type="text/javascript" src="colorPickerNN.js">
+  </script>
+  <script type="text/javascript" src="NeuralNetwork.js">
+  </script>
+  <script type="text/javascript" src="matrix.js">
+  </script>
+</head>
+
+<body>
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-lg-6">
+        <h2 class="text-uppercase"> Color Picker using Neural Network</h2>
+        <p class="text-monospace"> Given a background color, pick which color amongst white or black looks better on that background. Each time the user clicks the mouse a new random background color is generated.
+        </p>
+          <blockquote class="blockquote mb-0"> <p class="text-monospace">Initially the NeuralNetwork is trained with 50000 different colors  where it chooses 'black' color if the sum of input r,g,b colors is greater than 382 (because 255*3/2 is approximately 382) else it picks white color. Once the page has loaded the NN starts giving out predictions of which color looks best to which the user can further train the network by selecting which color looks best by simply clicking on either black or white.</p></blockquote>
+
+        <p class="text-monospace">
+          There are multiple ways of training the Network, the method demonstrated here is just one of the many.
+        </p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
